@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Detay | Göynük Profesyonel Araç Bakım & Detailing</title>
+    <meta name="description" content="autodetay.com.tr - Bolu Göynük'te profesyonel araç bakım, detaylı iç ve dış temizlik, boya koruma ve cila hizmetleri.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Logo Renkleriyle Uyumlu Renk Paleti */
+        :root {
+            --primary-gold: #D4AF37; /* Logodaki Premium Altın Rengi */
+            --gold-gradient: linear-gradient(45deg, #AA7C11 0%, #D4AF37 50%, #F3E5AB 100%);
+            --dark-bg: #0d0d0d;
+            --card-bg: #161616;
+            --text-gray: #b3b3b3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid #222222;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Hero Section - Arka Planda yikamafoto.jpg Karartma Katmanıyla Optimize Edildi */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(13, 13, 13, 0.65), rgba(13, 13, 13, 0.85)), 
+                        url('yikamafoto.jpg') no-repeat center center/cover;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero h1 span {
+            color: var(--primary-gold);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Premium Gold Buton */
+        .btn {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: #0d0d0d;
+            padding: 15px 35px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Section Global Layout */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 8px;
+            border: 1px solid #222222;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* Instagram Box */
+        .gallery-preview {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #222222;
+        }
+
+        .insta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: opacity 0.3s;
+        }
+
+        .insta-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+
+        .contact-info p {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            color: var(--primary-gold);
+            font-size: 20px;
+            width: 25px;
+        }
+
+        .info-item a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover {
+            color: var(--primary-gold);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #222222;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 40px 0;
+            border-top: 1px solid #222222;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Sticky WhatsApp Button */
+        .whatsapp-sticky {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-sticky:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">AUTO<span>DETAY</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#anasayfa">Anasayfa</a></li>
+                    <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="anasayfa" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Aracınız İlk Günkü <span>Parlaklığına Dönsün</span></h1>
+                <p>autodetay.com.tr ile profesyonel araç bakım, detaylı iç temizlik ve cila hizmetleri tek çatı altında.</p>
+                <a href="https://wa.me/905359442515" target="_blank" class="btn"><i class="fa-brands fa-whatsapp"></i> Hemen Randevu Al</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hizmetler">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hizmetlerimiz</h2>
+                <p>Aracınız için titizlikle sunduğumuz profesyonel temizlik ve bakım çözümleri.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-soap"></i></div>
+                    <h3>Detaylı İç & Dış Yıkama</h3>
+                    <p>Kaliteli şampuanlar ve mikrofiber ekipmanlarla çiziksiz, derinlemesine temizlik uygulamaları.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Boya Koruma & Cila</h3>
+                    <p>Zamanla oluşan matlığı yok ederek aracınızın boyasını koruma altına alan parlaklık formülleri.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+                    <h3>Koltuk & Döşeme Temizliği</h3>
+                    <p>Kumaş ve deri yüzeylerde biriken lekelerin antibakteriyel ürünlerle derinlemesine sterilizasyonu.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <h3>Motor Temizliği & Bakım</h3>
+                    <p>Motor aksamlarına zarar vermeden, özel solüsyonlarla güvenli kir ve yağ arındırma işlemi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Instagram Callout Section -->
+    <section id="galeri" style="background-color: #0a0a0a;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Öncesi & Sonrası</h2>
+                <p>Uygulamalarımızın canlı sonuçlarını ve en güncel çalışmalarımızı görmek için bizi takip edin.</p>
+            </div>
+            <div class="gallery-preview">
+                <p style="font-size: 18px; margin-bottom: 15px; color: var(--text-gray);">Harika dönüşümler ve günlük paylaşımlar Instagram sayfamızda!</p>
+                <a href="https://www.instagram.com/auto.detay/" target="_blank" class="insta-btn">
+                    <i class="fa-brands fa-instagram"></i> @auto.detay'ı Instagram'da Gör
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim">
+        <div class="container">
+            <div class="section-title">
+                <h2>İletişim & Rezervasyon</h2>
+                <p>Aracınıza hak ettiği temizliği sunmak için sizleri merkezimize bekliyoruz.</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>autodetay.com.tr</h3>
+                    <p>Titiz işçilik ve kaliteli hizmet anlayışıyla Göynük'te hizmetinizdeyiz.</p>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span><a href="https://maps.google.com/?q=Auto+Detay,+Hacı+Abdi,+14780+Göynük/Bolu" target="_blank">Hacı Abdi, 14780 Göynük / Bolu</a></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span><a href="tel:05359442515">0535 944 25 15</a></span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@autodetay.com.tr</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Her Gün: 09:00 - 20:00</span>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <!-- Göynük / Bolu Harita Entegrasyonu -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.5516104115166!2d30.7845!3d40.4014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI0JzA1LjAiTiAzMMKwNDcnMDQuMiJF!5e0!3m2!1str!2str!4v1718800000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 autodetay.com.tr. Tüm Hakları Saklıdır. | Auto Detay Göynük</p>
+        </div>
+    </footer>
+
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/905359442515" target="_blank" class="whatsapp-sticky">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
