@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitenin haritasını arama motorlarına bildiriyoruz
+Sitemap: https://autodetay.com.tr/sitemap.xml
