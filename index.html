@@ -115,6 +115,33 @@
                 display: inline-block;
             }
         }
+
+        /* Google Yorumları - yatay kaydırmalı */
+        .google-reviews-section { padding: 60px 0; background: #0d0d0d; border-bottom: 1px solid #222; }
+        .reviews-heading { text-align:center; margin-bottom: 28px; }
+        .reviews-heading h2 { font-family:'Orbitron',sans-serif; font-size:28px; margin-bottom:10px; }
+        .reviews-heading p { color:var(--text-gray); max-width:680px; margin:0 auto; }
+        .reviews-rating { display:inline-flex; align-items:center; gap:10px; margin-top:14px; color:var(--primary-gold); font-weight:700; }
+        .reviews-rating .google-label { color:#fff; font-weight:600; }
+        .reviews-slider-wrap { position:relative; }
+        .reviews-slider { display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; padding:6px 2px 18px; cursor:grab; }
+        .reviews-slider::-webkit-scrollbar { display:none; }
+        .reviews-slider.dragging { cursor:grabbing; scroll-behavior:auto; }
+        .review-card { flex:0 0 min(360px, 82vw); scroll-snap-align:start; background:var(--card-bg); border:1px solid #292929; border-radius:12px; padding:24px; min-height:220px; display:flex; flex-direction:column; }
+        .review-card-top { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; margin-bottom:14px; }
+        .review-author { font-weight:700; color:#fff; }
+        .review-source { font-size:12px; color:var(--text-gray); margin-top:3px; }
+        .review-stars { color:var(--primary-gold); letter-spacing:1px; white-space:nowrap; }
+        .review-text { color:#ddd; line-height:1.7; font-size:15px; margin:0; }
+        .review-card-bottom { margin-top:auto; padding-top:18px; font-size:12px; color:#888; }
+        .reviews-controls { display:flex; justify-content:center; gap:10px; margin-top:8px; }
+        .review-arrow { width:42px; height:42px; border-radius:50%; border:1px solid #333; background:#161616; color:#fff; cursor:pointer; transition:.2s; }
+        .review-arrow:hover { border-color:var(--primary-gold); color:var(--primary-gold); }
+        @media (max-width:600px) {
+            .reviews-heading h2 { font-size:23px; }
+            .review-card { min-height:240px; }
+        }
+
     </style>
 <script type="application/ld+json">
 {
@@ -292,12 +319,72 @@
         </div>
     </section>
 
-    <section aria-labelledby="calisma-baslik">
+    <section class="google-reviews-section" id="yorumlar" aria-labelledby="yorumlar-baslik">
         <div class="container">
-            <div class="section-title">
-                <h2 id="calisma-baslik">Auto Detay Göynük</h2>
-                <p>Gerçek uygulamalarımızı ve araç temizliği çalışmalarımızı Instagram hesabımızda da inceleyebilirsiniz.</p>
-                <img src="yikamafoto.png" alt="Göynük oto yıkama Auto Detay araç temizliği" width="718" height="585" loading="lazy" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #222;margin-top:20px;">
+            <div class="reviews-heading">
+                <h2 id="yorumlar-baslik">Müşterilerimizin Google Yorumları</h2>
+                <p>Auto Detay hakkında Google Haritalar'da paylaşılan gerçek müşteri yorumlarından seçmeler.</p>
+                <div class="reviews-rating" aria-label="Google değerlendirmeleri">
+                    <span aria-hidden="true">★★★★★</span>
+                    <span class="google-label">Google Haritalar yorumları</span>
+                </div>
+            </div>
+
+            <div class="reviews-slider-wrap">
+                <div class="reviews-slider" id="googleReviewsSlider" aria-label="Google müşteri yorumları">
+                    <article class="review-card">
+                        <div class="review-card-top">
+                            <div><div class="review-author">hakan dağ</div><div class="review-source">Google yorumu</div></div>
+                        </div>
+                        <p class="review-text">“Verdikleri detaylı iç dış yıkamada çıkardıkları sonuçlardan çok memnun kaldım.”</p>
+                        <div class="review-card-bottom">Google Haritalar'daki müşteri yorumlarından seçilmiştir.</div>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="review-card-top">
+                            <div><div class="review-author">Güngör İsmail Baygın</div><div class="review-source">Google yorumu</div></div>
+                        </div>
+                        <p class="review-text">“Adı üzerinde DETAY.”</p>
+                        <div class="review-card-bottom">Google Haritalar'daki müşteri yorumlarından seçilmiştir.</div>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="review-card-top">
+                            <div><div class="review-author">ozan yazıcı</div><div class="review-source">Google yorumu</div></div>
+                        </div>
+                        <p class="review-text">“İsmail Bey gerçekten çok ilgili ve işini hakkıyla yapan bir işletmeci, aracım ilk günkü gibi ışıl ışıl.”</p>
+                        <div class="review-card-bottom">Google Haritalar'daki müşteri yorumlarından seçilmiştir.</div>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="review-card-top">
+                            <div><div class="review-author">burak altınöz</div><div class="review-source">Google yorumu</div></div>
+                        </div>
+                        <p class="review-text">“Profesyonel hizmet, güler yüzlü işletmeci.”</p>
+                        <div class="review-card-bottom">Google Haritalar'daki müşteri yorumlarından seçilmiştir.</div>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="review-card-top">
+                            <div><div class="review-author">Tansel Karakaya</div><div class="review-source">Google yorumu</div></div>
+                        </div>
+                        <p class="review-text">“Standart bir iç-dış araç yıkamadan, detaylı temizliğe hatta pasta cila işlemine kadar geniş bir yelpazede uygulama yapılabiliyor.”</p>
+                        <div class="review-card-bottom">Google Haritalar'daki müşteri yorumlarından seçilmiştir.</div>
+                    </article>
+
+                    <article class="review-card">
+                        <div class="review-card-top">
+                            <div><div class="review-author">Burak Doğan</div><div class="review-source">Google yorumu</div></div>
+                        </div>
+                        <p class="review-text">“İsmail Bey son derece ilgili ve işini gerçekten iyi yapıyor. Müşteri memnuniyeti üst düzeyde.”</p>
+                        <div class="review-card-bottom">Google Haritalar'daki müşteri yorumlarından seçilmiştir.</div>
+                    </article>
+                </div>
+
+                <div class="reviews-controls" aria-label="Yorumlarda gezinme">
+                    <button class="review-arrow" type="button" id="reviewsPrev" aria-label="Önceki yorum">‹</button>
+                    <button class="review-arrow" type="button" id="reviewsNext" aria-label="Sonraki yorum">›</button>
+                </div>
             </div>
         </div>
     </section>
@@ -345,6 +432,49 @@
     <a href="https://wa.me/905359442515" target="_blank" class="whatsapp-sticky"><i class="fa-brands fa-whatsapp"></i></a>
 
     <!-- Hamburger Menü Açma/Kapama Scripti -->
+
+    <script>
+        (function () {
+            const slider = document.getElementById('googleReviewsSlider');
+            const prev = document.getElementById('reviewsPrev');
+            const next = document.getElementById('reviewsNext');
+            if (!slider) return;
+
+            const cardStep = () => {
+                const card = slider.querySelector('.review-card');
+                return card ? card.getBoundingClientRect().width + 18 : 380;
+            };
+
+            prev.addEventListener('click', () => {
+                slider.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+            });
+
+            next.addEventListener('click', () => {
+                slider.scrollBy({ left: cardStep(), behavior: 'smooth' });
+            });
+
+            let isDown = false, startX = 0, startScroll = 0;
+            slider.addEventListener('pointerdown', (e) => {
+                isDown = true;
+                slider.classList.add('dragging');
+                startX = e.clientX;
+                startScroll = slider.scrollLeft;
+                slider.setPointerCapture(e.pointerId);
+            });
+            slider.addEventListener('pointermove', (e) => {
+                if (!isDown) return;
+                slider.scrollLeft = startScroll - (e.clientX - startX);
+            });
+            const stopDrag = () => {
+                isDown = false;
+                slider.classList.remove('dragging');
+            };
+            slider.addEventListener('pointerup', stopDrag);
+            slider.addEventListener('pointercancel', stopDrag);
+            slider.addEventListener('pointerleave', stopDrag);
+        })();
+    </script>
+
     <script>
         function toggleMenu() {
             // Sadece mobil ekran genişliğindeyse çalıştır
